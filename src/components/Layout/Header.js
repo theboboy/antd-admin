@@ -9,7 +9,6 @@ function Header ({ user, logout, switchSider, siderFold, isNavbar, menuPopoverVi
   let handleClickMenu = e => e.key === 'logout' && logout()
   const menusProps = {
     siderFold: false,
-    darkTheme: false,
     isNavbar,
     handleClickNavMenu: switchMenuPopover,
     location,

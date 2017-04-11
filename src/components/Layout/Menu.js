@@ -25,7 +25,7 @@ const getMenus = function (menuArray, siderFold, parentPath = '/') {
   })
 }
 
-function Menus ({ siderFold, darkTheme, location, handleClickNavMenu, navOpenKeys, changeOpenKeys }) {
+function Menus ({ siderFold, location, handleClickNavMenu, navOpenKeys, changeOpenKeys }) {
   const menuItems = getMenus(menu, siderFold)
 
   const getAncestorKeys = (key) => {
@@ -57,7 +57,7 @@ function Menus ({ siderFold, darkTheme, location, handleClickNavMenu, navOpenKey
     <Menu
       {...menuProps}
       mode={siderFold ? 'vertical' : 'inline'}
-      theme={darkTheme ? 'dark' : 'light'}
+      theme='light'
       onClick={handleClickNavMenu}
       defaultSelectedKeys={[location.pathname !== '/' ? location.pathname : '/dashboard']}
     >
@@ -68,7 +68,6 @@ function Menus ({ siderFold, darkTheme, location, handleClickNavMenu, navOpenKey
 
 Menus.propTypes = {
   siderFold: PropTypes.bool,
-  darkTheme: PropTypes.bool,
   location: PropTypes.object,
   isNavbar: PropTypes.bool,
   handleClickNavMenu: PropTypes.func,

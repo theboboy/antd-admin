@@ -2,7 +2,8 @@ import { request } from '../utils'
 
 export async function login (params) {
   return request({
-    url: '/api/login',
+    // url: '/api/login',
+    url: '/login.json',
     method: 'post',
     data: params,
   })

@@ -11,7 +11,6 @@ export default {
     loginButtonLoading: false,
     menuPopoverVisible: false,
     siderFold: localStorage.getItem('antdAdminSiderFold') === 'true',
-    darkTheme: localStorage.getItem('antdAdminDarkTheme') !== 'false',
     isNavbar: document.body.clientWidth < 769,
     navOpenKeys: [],
     permissions: {
@@ -158,13 +157,6 @@ export default {
       return {
         ...state,
         siderFold: !state.siderFold,
-      }
-    },
-    handleChangeTheme (state) {
-      localStorage.setItem('antdAdminDarkTheme', !state.darkTheme)
-      return {
-        ...state,
-        darkTheme: !state.darkTheme,
       }
     },
     showNavbar (state) {

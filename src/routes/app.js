@@ -10,7 +10,7 @@ import '../components/skin.less'
 const { Header, Bread, Footer, Sider, styles } = Layout
 
 const App = ({ children, location, dispatch, app, loading }) => {
-  const { login, loginButtonLoading, user, siderFold, darkTheme, isNavbar, menuPopoverVisible, navOpenKeys } = app
+  const { login, loginButtonLoading, user, siderFold, isNavbar, menuPopoverVisible, navOpenKeys } = app
   const loginProps = {
     loading,
     loginButtonLoading,
@@ -42,12 +42,8 @@ const App = ({ children, location, dispatch, app, loading }) => {
 
   const siderProps = {
     siderFold,
-    darkTheme,
     location,
     navOpenKeys,
-    changeTheme () {
-      dispatch({ type: 'app/changeTheme' })
-    },
     changeOpenKeys (openKeys) {
       localStorage.setItem('navOpenKeys', JSON.stringify(openKeys))
       dispatch({ type: 'app/handleNavOpenKeys', payload: { navOpenKeys: openKeys } })
@@ -63,7 +59,7 @@ const App = ({ children, location, dispatch, app, loading }) => {
       </Helmet>
       {login
         ? <div className={classnames(styles.layout, { [styles.fold]: isNavbar ? false : siderFold }, { [styles.withnavbar]: isNavbar })}>
-          {!isNavbar ? <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
+          {!isNavbar ? <aside className={classnames(styles.sider, { [styles.light]: true })}>
             <Sider {...siderProps} />
           </aside> : ''}
           <div className={styles.main}>

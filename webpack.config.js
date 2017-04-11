@@ -25,6 +25,10 @@ module.exports = function (webpackConfig, env) {
     return !(plugin instanceof webpack.optimize.CommonsChunkPlugin)
   })
 
+  webpackConfig.externals = {
+    // react: 'react'
+  }
+
   // Support CSS Modules
   // Parse all less files as css module.
   webpackConfig.module.loaders.forEach((loader) => {

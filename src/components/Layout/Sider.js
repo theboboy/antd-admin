@@ -4,10 +4,9 @@ import styles from './Layout.less'
 import { config } from '../../utils'
 import Menus from './Menu'
 
-function Sider ({ siderFold, darkTheme, location, changeTheme, navOpenKeys, changeOpenKeys }) {
+function Sider ({ siderFold, location, changeTheme, navOpenKeys, changeOpenKeys }) {
   const menusProps = {
     siderFold,
-    darkTheme,
     location,
     navOpenKeys,
     changeOpenKeys,
@@ -19,19 +18,13 @@ function Sider ({ siderFold, darkTheme, location, changeTheme, navOpenKeys, chan
         {siderFold ? '' : <span>{config.logoText}</span>}
       </div>
       <Menus {...menusProps} />
-      {!siderFold ? <div className={styles.switchtheme}>
-        <span><Icon type="bulb" />切换主题</span>
-        <Switch onChange={changeTheme} defaultChecked={darkTheme} checkedChildren="黑" unCheckedChildren="白" />
-      </div> : ''}
     </div>
   )
 }
 
 Sider.propTypes = {
   siderFold: PropTypes.bool,
-  darkTheme: PropTypes.bool,
   location: PropTypes.object,
-  changeTheme: PropTypes.func,
   navOpenKeys: PropTypes.array,
   changeOpenKeys: PropTypes.func,
 }
